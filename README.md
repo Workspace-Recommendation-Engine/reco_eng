@@ -2,7 +2,7 @@
 AI Chatbots and Recommendation Systems Semester Project 
 
 
-## Project Status 
+## Project Status March 2, 2023
 In order to create this preliminary release of our Workspace Recommendation system, we continued to move through the steps outlined in our project proposal. Once we entered the data collection phase we began to scrape workspaces from google using Octoparse, utilizing keywords such as: “library”, “coffee shop”, “coworking space”, and “specialty cafe”. 
 
 From this method, we were able to gather about 400 different workspace locations within Madrid. We then began to clean and analyze our data. All of the datasets were then combined (libraries, coffee shops, coworking spaces, and specialty cafes) into one large dataset. 
