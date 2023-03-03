@@ -17,3 +17,7 @@ Our algorithms team worked in Google Colab to create the first version of our re
 - Use new algorithms such as Light GBM, Gradient Boosting Tree, …etc and compare the performance of each algorithm.
 - Build the frontend and backend of the application.
 - Combine application and recommendation system.
+
+
+## Frontend Figma
+https://www.figma.com/files/team/1213434573888216283/Workspace-Reco?fuid=988727842074551615 
