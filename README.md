@@ -13,7 +13,7 @@ Our algorithms team worked in Google Colab to create the first version of our re
 
 
 ## Plans
-Improve user data by using GAN to make the model work more similar to a real recommendation system.
-Use new algorithms such as Light GBM, Gradient Boosting Tree, …etc and compare the performance of each algorithm.
-Build the frontend and backend of the application.
-Combine application and recommendation system.
+- Improve user data by using GAN to make the model work more similar to a real recommendation system.
+- Use new algorithms such as Light GBM, Gradient Boosting Tree, …etc and compare the performance of each algorithm.
+- Build the frontend and backend of the application.
+- Combine application and recommendation system.
