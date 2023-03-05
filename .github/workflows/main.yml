@@ -1,0 +1,16 @@
+name: Build LaTeX Document
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Set up TeX Live environment
+        uses: latex-actions/texlive-quickbuild-action@v0.1.0
+      - name: Build LaTeX Document
+        run: |
+          pdflatex -interaction=nonstopmode main.tex
