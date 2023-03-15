@@ -27,7 +27,7 @@ export default function Login() {
             navigate("/login");
         }
         else if(user != null){
-            navigate("/");
+            navigate("/matches");
         } 
         return () => {
             unsubscribe();

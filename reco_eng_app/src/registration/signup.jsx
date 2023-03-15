@@ -7,12 +7,15 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
 } from "firebase/auth";
+import { useNavigate, Link} from 'react-router-dom';
 
 
 export default function Signup() {
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const navigate = useNavigate();
+
     const handleOnSubmit = (e) => {
       e.preventDefault();
       console.log(email);
@@ -21,6 +24,7 @@ export default function Signup() {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        navigate("/matches");
       })
       .catch((error) => {
         const errorCode = error.code;

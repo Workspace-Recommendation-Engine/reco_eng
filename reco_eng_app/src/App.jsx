@@ -5,6 +5,8 @@ import { BrowserRouter, MemoryRouter as Router, Route, Routes}
 import Landing from './landing/landing';
 import Login from './registration/login';
 import Signup from './registration/signup';
+import Matches from './matches/matches';
+
 
 
 
@@ -16,6 +18,7 @@ function App() {
         <Route path="/" element={<Landing/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path="/matches" element={<Matches/>}/>
       </Routes>
     </BrowserRouter>
     </>
