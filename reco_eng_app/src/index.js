@@ -1,10 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const firebaseConfig = {
+  apiKey: "AIzaSyC-Yil8QyThso2dcQyCVxnQz2GpbehZoEo",
+  authDomain: "reco-eng.firebaseapp.com",
+  projectId: "reco-eng",
+  storageBucket: "reco-eng.appspot.com",
+  messagingSenderId: "723323357249",
+  appId: "1:723323357249:web:8bcf9c83016de0c58a1ec0",
+  measurementId: "G-D41NX5FLZW",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const analytics = getAnalytics(app);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
