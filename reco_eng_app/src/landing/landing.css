@@ -11,7 +11,7 @@
 /* outter */
 #textBlurbDiv {
   width: 40vw;
-  background-color: lightpink;
+  /* background-color: lightpink; */
   /* align-items: center; */
   display: flex;
   justify-content: center;
@@ -19,9 +19,10 @@
 
 /* inner */
 #textBlurbBox {
-  margin-top: 25vh;
+  margin-top: 20vh;
+  margin-left: 10vh;
   width: 80%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 
 #find {
@@ -58,8 +59,28 @@
 }
 
 #officeSpaceImg {
-  width: 70%;
+  width: 75%;
   height: auto;
   margin-top: 15vh;
   top: 50%;
 }
+
+#signUpBtnLanding{
+    margin-top: .7vh;
+    display: block;
+    width: 220px;
+    height: 76.45px;
+    background-color: transparent;
+    border-radius: 26.36px;
+    border-color: black;
+    color: black;
+    font-family: "PT Mono";
+    font-size: 30px;
+    border-width: 1px;
+}
+
+#signUpBtnLanding:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+  }

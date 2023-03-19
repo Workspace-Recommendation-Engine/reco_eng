@@ -15,7 +15,9 @@ export default function Landing() {
                     <h2 id="find"> Find Your Perfect </h2>
                     <h1 id="workspace"> Workspace </h1>
                     <p id="using">Using artificial intelligence we can find the best workspace match based on your preferences.</p>
+                    <button id="signUpBtnLanding"> Sign Up </button>
                 </div>
+                
             </div>
             <div id="imageDiv">
                 <img id="officeSpaceImg" src={officeSpace}></img>
