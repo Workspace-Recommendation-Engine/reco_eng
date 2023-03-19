@@ -1,0 +1,65 @@
+#landingContent {
+  display: flex;
+}
+
+/* #textBlurb{
+    height: 100vh;
+    width: 40vw;
+    text-align: center;
+} */
+
+/* outter */
+#textBlurbDiv {
+  width: 40vw;
+  background-color: lightpink;
+  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+}
+
+/* inner */
+#textBlurbBox {
+  margin-top: 25vh;
+  width: 80%;
+  background-color: lightblue;
+}
+
+#find {
+  font-family: "PT Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 45px;
+  margin-bottom: 10px;
+}
+
+#workspace {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* line-height: 107px; */
+}
+
+#using {
+  font-family: "PT Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+#imageDiv {
+  height: 100vh;
+  width: 60vw;
+  text-align: center;
+}
+
+#officeSpaceImg {
+  width: 70%;
+  height: auto;
+  margin-top: 15vh;
+  top: 50%;
+}
