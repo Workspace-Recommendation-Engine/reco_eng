@@ -13,6 +13,7 @@ import blob1 from "../images/blob1.png"
 import blob2 from "../images/blob2.png"
 import "./signup.css"
 import { Grid } from "@mui/material";
+import { getDatabase, ref, set } from "firebase/database";
 
 
 export default function Signup() {
@@ -23,12 +24,14 @@ export default function Signup() {
 
     const handleOnSubmit = (e) => {
       e.preventDefault();
+      console.log(name);
       console.log(email);
       console.log(password);
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        writeUserData(user.uid, name)
         navigate("/matches");
       })
       .catch((error) => {
@@ -38,6 +41,13 @@ export default function Signup() {
       });
     };
 
+    function writeUserData(id,name){
+      const db = getDatabase();
+      set(ref(db, "users/" + id),{
+        uid: id,
+        name: name
+      })
+    }
 
 
   return (
