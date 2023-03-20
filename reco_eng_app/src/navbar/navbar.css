@@ -37,5 +37,10 @@
     background-color: black;
     color: white;
     border-color: black;
+    cursor: pointer;
   }
 
+  a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }

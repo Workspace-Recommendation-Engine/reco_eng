@@ -84,6 +84,7 @@
     background-color: black;
     color: white;
     border-color: black;
+    cursor: pointer;
 }
 
 #ellipse{
