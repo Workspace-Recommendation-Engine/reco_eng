@@ -1,0 +1,29 @@
+#signUpDiv{
+    width: 100vw;
+    height: 100vh;
+    background-color: #9BDEE1;
+}
+
+
+#signupForm{
+    background-color: red;
+    width:50%;
+    margin: auto;
+    text-align: center;
+}
+
+#outlined-basic{
+
+}
+
+#blob1{
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+#blob2{
+    position: absolute; 
+    top:0;
+    right:0;
+}
