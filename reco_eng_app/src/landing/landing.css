@@ -1,5 +1,6 @@
 #landingContent {
   display: flex;
+  position: relative;
 }
 
 /* #textBlurb{
@@ -20,7 +21,7 @@
 /* inner */
 #textBlurbBox {
   margin-top: 20vh;
-  margin-left: 10vh;
+  margin-left: 18vh;
   width: 80%;
   /* background-color: lightblue; */
 }
@@ -54,7 +55,7 @@
 
 #imageDiv {
   height: 100vh;
-  width: 60vw;
+  width: 62vw;
   text-align: center;
 }
 
@@ -83,4 +84,23 @@
     background-color: black;
     color: white;
     border-color: black;
-  }
+}
+
+#ellipse{
+    position: absolute;
+    width: 13.7%;
+    top: 22.5vh;
+    left: 46.5vh;
+}
+
+#blob1{
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+#blob2{
+    position: absolute; 
+    top:0;
+    right:0;
+}

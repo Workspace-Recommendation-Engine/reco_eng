@@ -2,6 +2,9 @@ import React from "react";
 import Navbar from "../navbar/navbar";
 import "./landing.css"
 import officeSpace from "../images/workspace drawing.png"
+import blob1 from "../images/blob1.png"
+import blob2 from "../images/blob2.png"
+import ellipse from "../images/Ellipse 1.png"
 
 
 export default function Landing() {
@@ -22,8 +25,12 @@ export default function Landing() {
             <div id="imageDiv">
                 <img id="officeSpaceImg" src={officeSpace}></img>
             </div>
+            <img id="ellipse" src={ellipse}></img>
+            <img id="blob1" src={blob1}></img>
+            <img id="blob2" src={blob2}></img>
         </div>
-         <h1> hey Im the landing page </h1>
+       
+         
 
 
         </>
