@@ -1,0 +1,107 @@
+#landingContent {
+  display: flex;
+  position: relative;
+}
+
+/* #textBlurb{
+    height: 100vh;
+    width: 40vw;
+    text-align: center;
+} */
+
+/* outter */
+#textBlurbDiv {
+  width: 40vw;
+  /* background-color: lightpink; */
+  /* align-items: center; */
+  display: flex;
+  justify-content: center;
+}
+
+/* inner */
+#textBlurbBox {
+  margin-top: 20vh;
+  margin-left: 18vh;
+  width: 80%;
+  /* background-color: lightblue; */
+}
+
+#find {
+  font-family: "PT Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 45px;
+  margin-bottom: 10px;
+}
+
+#workspace {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* line-height: 107px; */
+}
+
+#using {
+  font-family: "PT Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+}
+
+#imageDiv {
+  height: 100vh;
+  width: 62vw;
+  text-align: center;
+}
+
+#officeSpaceImg {
+  width: 75%;
+  height: auto;
+  margin-top: 15vh;
+  top: 50%;
+}
+
+#signUpBtnLanding{
+    margin-top: .7vh;
+    display: block;
+    width: 220px;
+    height: 76.45px;
+    background-color: transparent;
+    border-radius: 26.36px;
+    border-color: black;
+    color: black;
+    font-family: "PT Mono";
+    font-size: 30px;
+    border-width: 1px;
+}
+
+#signUpBtnLanding:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+}
+
+#ellipse{
+    position: absolute;
+    width: 13.7%;
+    top: 22.5vh;
+    left: 46.5vh;
+}
+
+#blob1{
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+#blob2{
+    position: absolute; 
+    top:0;
+    right:0;
+}

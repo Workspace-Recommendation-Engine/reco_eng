@@ -1,0 +1,46 @@
+#lineContainer{
+    margin: auto; 
+    width: 90%;
+}
+
+#line{
+    height: 1px;
+    background-color: black;
+}
+
+#navbar{
+    
+    display: flex;
+}
+
+#logo{
+    margin-top: 2vh;
+    margin-left: 15vh;
+    font-size: 20px;
+}
+
+#loginBtn{
+    margin-top: .7vh;
+    display: block;
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 22.5px;
+    border-color: black;
+    color: black;
+    font-family: "Inter"; 
+    font-size: 17px;
+    border-width: 1px;
+}
+
+#loginBtn:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+  }
+
+  a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
