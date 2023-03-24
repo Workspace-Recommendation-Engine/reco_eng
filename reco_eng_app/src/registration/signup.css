@@ -1,15 +1,31 @@
 #signUpDiv{
     width: 100vw;
     height: 100vh;
-    background-color: #9BDEE1;
+    /* background-color: #9BDEE1; */
+    position:absolute
 }
 
+#create{
+    color: white;
+    padding-top: 5vh;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
 
 #signupForm{
-    background-color: red;
-    width:50%;
+    background-color: #9BDEE1;
+    height: 500px;
+    width: 500px;
     margin: auto;
     text-align: center;
+    margin-top: 10vh;
+    border-radius: 20px;
+    box-shadow: 5px 7px #000000;
+}
+
+#signUpGrid{
+    margin-top: 15px;
+    
 }
 
 
@@ -24,3 +40,23 @@
     top:0;
     right:0;
 }
+
+#submitSignUpBtn{
+    margin-top: .7vh;
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 22.5px;
+    border-color: black;
+    color: black;
+    font-family: "Inter"; 
+    font-size: 17px;
+    border-width: 1px;
+}
+
+#submitSignUpBtn:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
+  }

@@ -54,23 +54,25 @@ export default function Signup() {
     <>
       <Navbar></Navbar>
     
+      
       <div id="signUpDiv">
         <form id="signupForm" onSubmit={(e) => handleOnSubmit(e)}>
-          <Grid container direction={"column"} spacing={3}>
+          <h1 id="create"> Create an Account </h1>
+          <Grid container id="signUpGrid" direction={"column"} spacing={3}>
             <Grid item>
-              <TextField id="outlined-basic" label="Name" variant="outlined" value={name} onChange={(e) => setName(e.target.value)}/>
+              <TextField id="standard-basic" label="Name" variant="outlined" value={name} size="small" sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px', backgroundColor: "white"} }} onChange={(e) => setName(e.target.value)}/>
             </Grid>
             <Grid item>
-              <TextField id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}/>
+              <TextField id="outlined-basic" label="Email" variant="outlined" value={email} sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px',  backgroundColor: "white"} }}  onChange={(e) => setEmail(e.target.value)}/>
             </Grid>
             <Grid item>
-              <TextField id="outlined-basic" label="Password" variant="outlined" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <TextField id="outlined-basic" label="Password" variant="outlined" type="password" value={password} sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px',  backgroundColor: "white"} }}  onChange={(e) => setPassword(e.target.value)}/>
             </Grid>
             <Grid item>
-              <TextField id="outlined-basic" label="Confirm Password" type="password" variant="outlined" />
+              <TextField id="outlined-basic" label="Confirm Password" type="password" variant="outlined" sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px', backgroundColor: "white"}}} />
             </Grid>
             <Grid item>
-            <button type="submit" onClick={(e)=>handleOnSubmit(e)}> Submit </button>
+            <button id="submitSignUpBtn" type="submit" onClick={(e)=>handleOnSubmit(e)}> Submit </button>
             </Grid>
           </Grid>
         </form>
