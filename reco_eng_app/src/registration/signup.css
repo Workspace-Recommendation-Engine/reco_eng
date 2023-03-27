@@ -14,7 +14,7 @@
 
 #signupForm{
     background-color: #9BDEE1;
-    height: 500px;
+    height: 530px;
     width: 500px;
     margin: auto;
     text-align: center;
@@ -47,7 +47,7 @@
     height: 30px;
     background-color: transparent;
     border-radius: 22.5px;
-    border-color: black;
+    border-color: 1px solid black;
     color: black;
     font-family: "Inter"; 
     font-size: 17px;
@@ -60,3 +60,10 @@
     border-color: black;
     cursor: pointer;
   }
+
+  #formsLineSignUp{
+    position: absolute;
+    width: 16.7%;
+    top: 3vh;
+    right: 13vh;
+}

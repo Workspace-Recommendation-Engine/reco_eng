@@ -66,42 +66,42 @@
   top: 50%;
 }
 
-#signUpBtnLanding{
-    margin-top: .7vh;
-    display: block;
-    width: 220px;
-    height: 76.45px;
-    background-color: transparent;
-    border-radius: 26.36px;
-    border-color: black;
-    color: black;
-    font-family: "PT Mono";
-    font-size: 30px;
-    border-width: 1px;
+#signUpBtnLanding {
+  margin-top: 0.7vh;
+  display: block;
+  width: 220px;
+  height: 76.45px;
+  background-color: transparent;
+  border-radius: 26.36px;
+  border-color: black;
+  color: black;
+  font-family: "PT Mono";
+  font-size: 30px;
+  border-width: 1px;
 }
 
 #signUpBtnLanding:hover {
-    background-color: black;
-    color: white;
-    border-color: black;
-    cursor: pointer;
+  background-color: black;
+  color: white;
+  border-color: black;
+  cursor: pointer;
 }
 
-#ellipse{
-    position: absolute;
-    width: 13.7%;
-    top: 22.5vh;
-    left: 46.5vh;
+#ellipse {
+  position: absolute;
+  width: 13.7%;
+  top: 22.5vh;
+  left: 46.5vh;
 }
 
-#blob1{
-    position: absolute;
-    bottom:0;
-    left:0;
+#blob1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-#blob2{
-    position: absolute; 
-    top:0;
-    right:0;
+#blob2 {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

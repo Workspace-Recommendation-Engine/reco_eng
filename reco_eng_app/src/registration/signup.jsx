@@ -14,6 +14,9 @@ import blob2 from "../images/blob2.png"
 import "./signup.css"
 import { Grid } from "@mui/material";
 import { getDatabase, ref, set } from "firebase/database";
+import formsLine from "../images/formsLine.png"
+import Button from '@mui/material/Button';
+
 
 
 export default function Signup() {
@@ -72,9 +75,15 @@ export default function Signup() {
               <TextField id="outlined-basic" label="Confirm Password" type="password" variant="outlined" sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px', backgroundColor: "white"}}} />
             </Grid>
             <Grid item>
-            <button id="submitSignUpBtn" type="submit" onClick={(e)=>handleOnSubmit(e)}> Submit </button>
+            <Button variant="outlined" sx={{color: "white", borderColor:"white", height:"50px", width:"130px", borderRadius:"20px", fontSize: "17px"}} onClick={(e)=>handleOnSubmit(e)}>Sign Up</Button>
             </Grid>
           </Grid>
+          <div id="otherFormNav">
+            <a href="/login">
+            <h3 id="dont"> Aready have an account? Click Here </h3>
+            <img id="formsLineSignUp" src={formsLine}></img>
+            </a>
+        </div> 
         </form>
       </div>
       <img id="blob1" src={blob1}></img>
