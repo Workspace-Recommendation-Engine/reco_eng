@@ -50,7 +50,7 @@ export default function Login() {
             // Signed in 
             const user = userCredential.user; 
             console.log("user in login" , user)
-            navigate("/matching")
+            navigate("/matches")
             // ...
         })
         .catch((error) => {

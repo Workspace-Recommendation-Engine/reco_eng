@@ -10,6 +10,14 @@ import "./navbar.css"
 
 export default function Navbar(){
     const navigate = useNavigate();
+    const auth = getAuth();
+    const [loggedIn, setLoggedIn] = React.useState(false);
+
+    auth.onAuthStateChanged(function(user) {
+        if(user) {
+            setLoggedIn(true);
+        }
+    })
 
     const logout = () => {
         const auth = getAuth();
@@ -30,7 +38,7 @@ export default function Navbar(){
             <Stack spacing={10} direction="row" id="buttonStack" style={{justifyContent: "right", width: "82%", marginBottom: "1vh", marginTop:"1vh"}}>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none', borderRadius: "20%", ":hover": {bgcolor: "#AF5",color: "white"}}} onClick={() => navigate("/howItWorks")} > How it Works? </Button>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none', borderRadius: "20%"}} onClick={() => navigate("/aboutUs")} > About Us </Button>
-                <button id="loginBtn" onClick={() => navigate("/login")}> Login </button>
+                {loggedIn ? <button id="loginBtn" onClick={() => navigate("/login")}> Log Out </button> : <button id="loginBtn" onClick={() => navigate("/login")}> Login </button> }
             </Stack>
         </div>
         <div id="lineContainer">

@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useNavigate, Link} from 'react-router-dom';
 import { useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
-
+import Navbar from "../navbar/navbar";
+import "./matches.css"
 
 export default function Matches() {
     const navigate = useNavigate();
@@ -21,8 +22,10 @@ export default function Matches() {
     } 
   return (
     <>
-      <h1>hi I am the matches page</h1>
-      <button onClick={logout}> Log Out </button>
+      <Navbar></Navbar>
+      <div id="matchesHeader"> <h1>Your Workspace Matches</h1> </div>
+      
+      
     </>
   );
 }
