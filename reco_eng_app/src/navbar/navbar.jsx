@@ -38,7 +38,7 @@ export default function Navbar(){
             <Stack spacing={10} direction="row" id="buttonStack" style={{justifyContent: "right", width: "82%", marginBottom: "1vh", marginTop:"1vh"}}>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none', borderRadius: "20%", ":hover": {bgcolor: "#AF5",color: "white"}}} onClick={() => navigate("/howItWorks")} > How it Works? </Button>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none', borderRadius: "20%"}} onClick={() => navigate("/aboutUs")} > About Us </Button>
-                {loggedIn ? <button id="loginBtn" onClick={() => navigate("/login")}> Log Out </button> : <button id="loginBtn" onClick={() => navigate("/login")}> Login </button> }
+                {loggedIn ? <button id="loginBtn" onClick={() => logout()}> Log Out </button> : <button id="loginBtn" onClick={() => navigate("/login")}> Login </button> }
             </Stack>
         </div>
         <div id="lineContainer">
