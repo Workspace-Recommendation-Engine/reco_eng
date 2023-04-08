@@ -1,0 +1,58 @@
+#LogIn {
+  color: white;
+  padding-top: 5vh;
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+
+#submitLoginBtn {
+  margin-top: 0.7vh;
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 22.5px;
+  border-color: white;
+  color: white;
+  font-family: "Inter";
+  font-size: 17px;
+  border-width: 1px;
+  text-decoration:none;  
+}
+
+#submitLoginBtn:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+  cursor: pointer;
+}
+
+#logInForm {
+  background-color: #FFC366;
+  height: 400px;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  margin-top: 10vh;
+  border-radius: 20px;
+  box-shadow: 5px 7px #000000;
+}
+
+#dont{
+    color: white;
+}
+
+#otherFormNav{
+    position: relative;
+}
+
+#formsLine{
+    position: absolute;
+    width: 16.7%;
+    top: 3vh;
+    right: 12.5vh;
+}
+
+#books{
+    width:100%;
+    position: absolute;
+}

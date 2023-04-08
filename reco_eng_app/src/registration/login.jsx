@@ -10,6 +10,12 @@ import {
   signInWithRedirect,
   onAuthStateChanged
 } from "firebase/auth";
+import Navbar from "../navbar/navbar";
+import { Grid } from "@mui/material";
+import "./login.css"
+import Button from '@mui/material/Button';
+import formsLine from "../images/formsLine.png"
+import books from "../images/books.png"
 
 export default function Login() {
     const [email, setEmail] = React.useState('');
@@ -44,7 +50,7 @@ export default function Login() {
             // Signed in 
             const user = userCredential.user; 
             console.log("user in login" , user)
-            navigate("/")
+            navigate("/matches")
             // ...
         })
         .catch((error) => {
@@ -56,15 +62,28 @@ export default function Login() {
 
     return(
         <>
-         <h1> hey Im the login page </h1>
-        <form id="signupForm" onSubmit={(e) => handleOnSubmit(e)}>
-        <br/>
-        <TextField id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <br/>
-        <TextField id="outlined-basic" label="Password" variant="outlined" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <br/>
-        <button type="submit" onClick={(e)=>handleOnSubmit(e)}> Submit </button>
+        <Navbar></Navbar>
+        <form id="logInForm" onSubmit={(e) => handleOnSubmit(e)}>
+        <h1 id="LogIn"> Log In </h1>
+        <Grid container id="signUpGrid" direction={"column"} spacing={3}>
+            <Grid item>
+                <TextField id="outlined-basic" label="Email" variant="outlined" value={email} sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px',  backgroundColor: "white"} }}  onChange={(e) => setEmail(e.target.value)}/> 
+            </Grid>
+            <Grid item>
+                <TextField id="outlined-basic" label="Password" variant="outlined" type="password" value={password} sx={{width:"320px", '& .MuiOutlinedInput-root': {borderRadius: '10px', height:'50px',  backgroundColor: "white"} }}  onChange={(e) => setPassword(e.target.value)}/>
+            </Grid>
+            <Grid item>
+            <Button variant="outlined" sx={{color: "white", borderColor:"white", height:"50px", width:"130px", borderRadius:"20px", fontSize: "17px"}} onClick={(e)=>handleOnSubmit(e)}>Log In</Button>
+            </Grid>
+        </Grid>  
+        <div id="otherFormNav">
+            <a href="/signup">
+            <h3 id="dont"> Don’t have an account? Click Here </h3>
+            <img id="formsLine" src={formsLine}></img>
+            </a>
+        </div>      
       </form>
+        <img id="books" src={books}></img>
         </>
     );
 }

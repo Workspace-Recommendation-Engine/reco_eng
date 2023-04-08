@@ -1,0 +1,68 @@
+#matchesHeader {
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+#yourWorkspaceMatches{
+    color: grey;
+}
+
+#gridImages {
+  width: 100%;
+}
+
+#addressBtn {
+  margin-top: 0.7vh;
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 22.5px;
+  border-color: black;
+  color: black;
+  font-family: "Inter";
+  font-size: 16px;
+  border-width: 1px;
+  margin-right: 20px;
+}
+
+#addressBtn:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+  cursor: pointer;
+}
+
+#itemDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+#itemDescription2 {
+  display: flex;
+}
+
+#break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+#hours {
+  margin: 0px;
+  margin-top: 1.2vh;
+}
+
+#thumbnail {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5%;
+}
+
+ /* found tempoary solution with max-height  */
+#thumbnailImg {
+  width: 100%;
+  height: auto;
+  max-height: 170px;
+}
+
