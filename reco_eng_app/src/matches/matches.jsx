@@ -14,6 +14,8 @@ import blob1 from "../images/blob1.png"
 import blob2 from "../images/blob2.png"
 
 
+
+
 export default function Matches() {
   const navigate = useNavigate();
   const logout = () => {
@@ -34,9 +36,26 @@ export default function Matches() {
     workCafe,
     workCafe,
     verticalCafe,
-    verticalCafe,
     verticalCafe
   ]);
+
+  
+  let firstItem = false; 
+
+  function MatchIndex ({index}){
+    if(index == 0){
+      firstItem = true; 
+    }
+    else if (index > 0 && index < testArr.length) {
+      firstItem = false;
+    }
+
+    return(
+      <>
+      { firstItem ? <Grid item sx={{color: "#E7951B", fontWeight: "600" }}> Best Match </Grid> : <Grid item sx={{color: "#557B7C", fontWeight: "600"}}> Match Rank: {index + 1} </Grid>}
+      </>
+    )
+  }
 
   return (
     <>
@@ -50,7 +69,7 @@ export default function Matches() {
         spacing={3}
         sx={{justifyContent: "flex-begin" }}
       >
-        {testArr.map((item) => (
+        {testArr.map((item, index) => (
           <Grid item xs={2} md={3} sx={{marginTop: "30px"}}>
             <Box sx={{ }}>
               <Box sx={{ height: "200px", width: "100%"}}>
@@ -71,7 +90,9 @@ export default function Matches() {
                   <Grid container spacing={3}>
                     <Grid item>Name</Grid>
                     <Grid item>Type</Grid>
-                    <Grid item>Match Rank</Grid>
+                    <MatchIndex index={index} />
+                    {/* {setMatchIndex(matchIndex + 1)} */}
+                    {/* <Grid item>Match Rank</Grid> */}
                   </Grid>
                   <div id="break"> </div>
                   <div id="itemDescription2">
