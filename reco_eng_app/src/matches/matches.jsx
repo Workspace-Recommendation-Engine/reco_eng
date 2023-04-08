@@ -78,7 +78,7 @@ export default function Matches() {
                     id="carouselStyle"
                     indicators={true}
                     autoPlay={false}
-                    sx={{  height: "200px", textAlign:"center" }}  /*change something with the height of carousel */
+                    sx={{  height: "200px", textAlign:"center" }} 
                   >
                     <div id="thumbnail">
                       <img id="thumbnailImg" src={item}></img>
@@ -91,8 +91,6 @@ export default function Matches() {
                     <Grid item>Name</Grid>
                     <Grid item>Type</Grid>
                     <MatchIndex index={index} />
-                    {/* {setMatchIndex(matchIndex + 1)} */}
-                    {/* <Grid item>Match Rank</Grid> */}
                   </Grid>
                   <div id="break"> </div>
                   <div id="itemDescription2">
