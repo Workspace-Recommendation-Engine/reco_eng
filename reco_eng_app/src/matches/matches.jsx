@@ -36,7 +36,8 @@ export default function Matches() {
     workCafe,
     workCafe,
     verticalCafe,
-    verticalCafe
+    verticalCafe,
+    workCafe
   ]);
 
   
