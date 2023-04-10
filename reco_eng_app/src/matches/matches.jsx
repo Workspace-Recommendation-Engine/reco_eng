@@ -73,8 +73,7 @@ export default function Matches() {
         {testArr.map((item, index) => (
           <Grid item xs={2} md={3} sx={{marginTop: "30px"}}>
             <Box sx={{ }}>
-              <Box sx={{ height: "200px", width: "100%"}}>
-    
+              <Box sx={{height: "200px", width: "100%"}}>
                   <Carousel
                     id="carouselStyle"
                     indicators={true}

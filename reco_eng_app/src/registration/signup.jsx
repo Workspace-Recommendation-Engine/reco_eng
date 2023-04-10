@@ -35,7 +35,7 @@ export default function Signup() {
       .then((userCredential) => {
         const user = userCredential.user;
         writeUserData(user.uid, name)
-        navigate("/matches");
+        navigate("/signup2");
       })
       .catch((error) => {
         const errorCode = error.code;
