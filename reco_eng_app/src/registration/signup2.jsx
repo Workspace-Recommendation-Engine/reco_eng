@@ -101,24 +101,36 @@ export default function SignUp2() {
 
   function postCategoryRatings (){
     // Get a reference to the database
-    const db = getDatabase();
-
+    
+    let rating = null; 
+    for(let i = 0; i <= 17; i++){
+      console.log("i is: " + i)
+      const db = getDatabase();
+    if(i <= 1 || i >= 3 && i <=7 || i >= 9 && i <=11 || i >= 15 && i <=16){
+      rating = cafeRating; 
+    }
+    else if ( i == 2 || i == 8){
+      rating = coWorkingRating;
+    }
+    else{
+      rating = libraryRating;
+    }
     // Create the data object
     const data = {
-      categoryID: "0",
+      categoryID: i,
       uid: user.uid,
-      rating: "0"
+      rating: rating
     };
-
     // Write the data to the database
     // const id = "1"; 
-    set(ref(db, "categoryRatings/categoryRating"), data)
+    set(ref(db, "categoryRatings/categoryRating" + i + "_" + user.uid), data)
       .then(() => {
         console.log("Data saved successfully.");
       })
       .catch((error) => {
         console.log("Data could not be saved." + error);
       });
+    }
   }
 
 
