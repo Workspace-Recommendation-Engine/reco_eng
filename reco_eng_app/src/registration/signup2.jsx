@@ -16,7 +16,8 @@ import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-
+import { useState } from "react";
+import { useEffect } from "react";
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -73,7 +74,33 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
+
+
+
 export default function SignUp2() {
+
+  const [cafeRating, setCafeRating] = React.useState(0);
+  const [libraryRating, setLibraryRating] = React.useState(0);
+  const [coWorkingRating, setcoWorkingRating] = React.useState(0);
+
+  function handleCafeRating (value){
+    setCafeRating(value);
+  }
+
+  function handleLibraryRating (value){
+    setLibraryRating(value);
+  }
+
+  function handleCoWorkingRating (value){
+    setcoWorkingRating(value);
+  }
+  
+  useEffect(() => {
+    console.log("cafe rating: " , cafeRating)
+    console.log("library rating: " , libraryRating)
+    console.log("coWorking rating: " ,coWorkingRating)
+  },[cafeRating,libraryRating,coWorkingRating])
+
   return (
     <>
       <Navbar></Navbar>
@@ -88,7 +115,7 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Cafe or Bakery </div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={() => handleCafeRating()}/>
                     </Box>
                 </Box>
             </Grid>
@@ -99,7 +126,7 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Library</div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} value={libraryRating}/>
                     </Box>
                 </Box>
             </Grid>
@@ -110,14 +137,13 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Co-working Space</div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} value={coWorkingRating}/>
                     </Box>
                 </Box>
             </Grid>
         </Grid>
         {/* add done button to make submission easier <div> <button> done </button> </div> */}
       </div>
-
       <img id="blob1" src={blob1}></img>
       <img id="blob2" src={blob2}></img>
     </>
