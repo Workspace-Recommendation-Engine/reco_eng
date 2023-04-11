@@ -34,8 +34,9 @@ export default function Signup() {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        console.log(userCredential.user)
         writeUserData(user.uid, name)
-        navigate("/matches");
+        // navigate("/signup2");
       })
       .catch((error) => {
         const errorCode = error.code;

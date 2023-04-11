@@ -1,6 +1,7 @@
 #lineContainer{
     margin: auto; 
     width: 90%;
+    margin-top: 4px;
 }
 
 #line{
@@ -20,7 +21,7 @@
 }
 
 #loginBtn{
-    margin-top: .7vh;
+    margin-top: 1.2vh;
     display: block;
     width: 100px;
     height: 30px;

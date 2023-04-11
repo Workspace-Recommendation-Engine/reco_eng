@@ -12,11 +12,91 @@ import workCafe from "../images/WorkCafe.jpeg";
 import verticalCafe from "../images/verticalImage.jpeg";
 import blob1 from "../images/blob1.png"
 import blob2 from "../images/blob2.png"
+import PropTypes from 'prop-types';
+import Slider, { SliderThumb } from '@mui/material/Slider';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import { getDatabase, ref, get, child, set, onValue } from "firebase/database";
 
+function ValueLabelComponent(props) {
+  const { children, value } = props;
+
+  return (
+    <Tooltip enterTouchDelay={0} placement="top" title={value}>
+      {children}
+    </Tooltip>
+  );
+}
+
+ValueLabelComponent.propTypes = {
+  children: PropTypes.element.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+const PrettoSlider = styled(Slider)({
+  color: '#ffa929',
+  height: 8,
+  width: 200,
+  '& .MuiSlider-track': {
+    border: 'none',
+  },
+  '& .MuiSlider-thumb': {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
+    '&:before': {
+      display: 'none',
+    },
+  },
+  '& .MuiSlider-valueLabel': {
+    lineHeight: 1.2,
+    fontSize: 12,
+    background: 'unset',
+    padding: 0,
+    width: 32,
+    height: 32,
+    borderRadius: '50% 50% 50% 0',
+    backgroundColor: '#ffa929',
+    transformOrigin: 'bottom left',
+    transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+    '&:before': { display: 'none' },
+    '&.MuiSlider-valueLabelOpen': {
+      transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+    },
+    '& > *': {
+      transform: 'rotate(45deg)',
+    },
+  },
+});
 
 
 
 export default function Matches() {
+ 
+  let workSpaces = []
+  //!dont delete use this code to read workspace objects later when they are returned from the model 
+  // useEffect(() => {
+  //   readWorkspaces()
+  // function readWorkspaces (){
+  //   const db = getDatabase();
+  //   const workspacesRef = ref(db, 'workspaces');
+  //   console.log("here")
+  //   onValue(workspacesRef, (snapshot) => {
+  //     workSpaces = snapshot.val()
+  //     console.log("data in matches page: " + workSpaces[0].name)
+  //   }, (error) => {
+  //     console.log("Error reading data: " + error.code);
+  //   });
+
+  // }
+  // },[]);  
+
+
   const navigate = useNavigate();
   const logout = () => {
     const auth = getAuth();
@@ -36,7 +116,8 @@ export default function Matches() {
     workCafe,
     workCafe,
     verticalCafe,
-    verticalCafe
+    verticalCafe,
+    workCafe
   ]);
 
   
@@ -49,7 +130,6 @@ export default function Matches() {
     else if (index > 0 && index < testArr.length) {
       firstItem = false;
     }
-
     return(
       <>
       { firstItem ? <Grid item sx={{color: "#E7951B", fontWeight: "600" }}> Best Match </Grid> : <Grid item sx={{color: "#557B7C", fontWeight: "600"}}> Match Rank: {index + 1} </Grid>}
@@ -72,8 +152,7 @@ export default function Matches() {
         {testArr.map((item, index) => (
           <Grid item xs={2} md={3} sx={{marginTop: "30px"}}>
             <Box sx={{ }}>
-              <Box sx={{ height: "200px", width: "100%"}}>
-    
+              <Box sx={{height: "200px", width: "100%"}}>
                   <Carousel
                     id="carouselStyle"
                     indicators={true}
@@ -98,6 +177,11 @@ export default function Matches() {
                     <p id="hours">Hours:</p>
                   </div>
                 </div>
+                <div style={{display: "flex"}}>
+                  <div style={{marginTop:"5px"}}> Rate: </div>
+                  <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} /></div>
+                </div>
+                
               </Box>
             </Box>
           </Grid>

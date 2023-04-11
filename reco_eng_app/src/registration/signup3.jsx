@@ -6,11 +6,11 @@ import blob2 from "../images/blob2.png";
 import ellipse from "../images/Ellipse 1.png";
 import { useNavigate } from "react-router-dom";
 
-export default function AboutUs() {
+export default function SignUp3() {
   return (
     <>
       <Navbar></Navbar>
-      <h1> About Us </h1>
+      <h1> Sign Up 3 </h1>
 
       <img id="blob1" src={blob1}></img>
       <img id="blob2" src={blob2}></img>
