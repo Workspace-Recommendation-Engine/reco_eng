@@ -91,19 +91,37 @@ export default function SignUp2() {
   //   setCurrUser(currUser)
   // }, []);
 
+  const user = getAuth().currentUser;
   useEffect(() => {
     console.log("cafe rating: " , cafeRating)
     console.log("library rating: " , libraryRating)
     console.log("coWorking rating: " ,coWorkingRating)
-    const user = getAuth().currentUser;
     console.log("user in sign up 2:" + user?.uid);
   },[cafeRating,libraryRating,coWorkingRating])
 
   function postCategoryRatings (){
+    // Get a reference to the database
     const db = getDatabase();
-    push(ref(db, "categoryRating/" + id),{
-    });
+
+    // Create the data object
+    const data = {
+      categoryID: "0",
+      uid: user.uid,
+      rating: "0"
+    };
+
+    // Write the data to the database
+    // const id = "1"; 
+    set(ref(db, "categoryRatings/categoryRating"), data)
+      .then(() => {
+        console.log("Data saved successfully.");
+      })
+      .catch((error) => {
+        console.log("Data could not be saved." + error);
+      });
   }
+
+
 
   return (
     <>
@@ -147,7 +165,7 @@ export default function SignUp2() {
                 </Box>
             </Grid>
         </Grid>
-        <Button variant="outlined" sx={{marginTop: "15vh", color: "white", borderColor:"white", height:"50px", width:"130px", borderRadius:"20px", fontSize: "17px"}} onClick={(e)=>handleOnSubmit(e)}>Done</Button>
+        <Button variant="outlined" sx={{marginTop: "15vh", color: "white", borderColor:"white", height:"50px", width:"130px", borderRadius:"20px", fontSize: "17px"}} onClick={()=>postCategoryRatings()}>Done</Button>
         {/* add done button to make submission easier <div> <button> done </button> </div> */}
       </div>
       <img id="blob1" src={blob1}></img>
