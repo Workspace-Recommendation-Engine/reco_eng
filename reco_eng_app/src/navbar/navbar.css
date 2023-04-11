@@ -1,6 +1,7 @@
 #lineContainer{
     margin: auto; 
     width: 90%;
+    margin-top: 4px;
 }
 
 #line{

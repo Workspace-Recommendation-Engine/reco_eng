@@ -32,7 +32,7 @@ export default function Navbar(){
     return(
         <>
         <div id="navbar">
-            <div id="logo"> <a href="/"> <img src={coffeeMug} style={{maxHeight: "44px", marginRight: "20px"}}></img> </a> </div>
+            <div id="logo"> <a href="/"> <img src={coffeeMug} style={{maxHeight: "43px", marginRight: "20px"}}></img> </a> </div>
             <Stack spacing={10} direction="row" id="buttonStack" style={{justifyContent: "right", width: "82%", marginBottom: "1vh", marginTop:"1vh"}}>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none',  ":hover": {bgcolor: "#AF5",color: "white"}}} onClick={() => navigate("/howItWorks")} > How it Works? </Button>
                 <Button variant="text" style={{color : "black", fontSize: "17px", textTransform: 'none'}} onClick={() => navigate("/aboutUs")} > About Us </Button>
