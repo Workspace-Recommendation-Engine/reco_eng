@@ -1,6 +1,6 @@
 #signUp2Div{
     background-color: #9BDEE1;
-    height: 60vh;
+    height: 67vh;
     width: 80vw;
     margin: auto;
     text-align: center;
@@ -25,4 +25,26 @@
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+#doneButton{
+    margin-top: 15vh;
+
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 22.5px;
+    border-color: white;
+    color: white;
+    font-family: "Inter";
+    font-size: 17px;
+    border-width: 1px;
+    text-decoration:none;  
+}
+
+#doneButton:hover{
+    background-color: black;
+    color: white;
+    border-color: black;
+    cursor: pointer;
 }

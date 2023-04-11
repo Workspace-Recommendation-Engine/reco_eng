@@ -18,6 +18,9 @@ import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import { useState } from "react";
 import { useEffect } from "react";
+import Button from '@mui/material/Button';
+import { getDatabase, ref, get, child, set } from "firebase/database";
+import {getAuth} from "firebase/auth";
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -75,38 +78,40 @@ const PrettoSlider = styled(Slider)({
 });
 
 
-
-
 export default function SignUp2() {
 
   const [cafeRating, setCafeRating] = React.useState(0);
   const [libraryRating, setLibraryRating] = React.useState(0);
   const [coWorkingRating, setcoWorkingRating] = React.useState(0);
-
-  function handleCafeRating (value){
-    setCafeRating(value);
-  }
-
-  function handleLibraryRating (value){
-    setLibraryRating(value);
-  }
-
-  function handleCoWorkingRating (value){
-    setcoWorkingRating(value);
-  }
+  const [currUser, setCurrUser] = React.useState(0); 
   
+  // useEffect(() => {
+  //   const user = getAuth().currentUser;
+  //   console.log("user in sign up 2:" + user?.name);
+  //   setCurrUser(currUser)
+  // }, []);
+
   useEffect(() => {
     console.log("cafe rating: " , cafeRating)
     console.log("library rating: " , libraryRating)
     console.log("coWorking rating: " ,coWorkingRating)
+    const user = getAuth().currentUser;
+    console.log("user in sign up 2:" + user?.uid);
   },[cafeRating,libraryRating,coWorkingRating])
+
+  function postCategoryRatings (){
+    const db = getDatabase();
+    push(ref(db, "categoryRating/" + id),{
+    });
+  }
 
   return (
     <>
       <Navbar></Navbar>
 
       <div id="signUp2Div">
-        <h1 id="WhatType">What Type of Workspace Do You Prefer?</h1>
+        <h1 id="WhatType">Rate the Following Workspaces</h1>
+        <p style={{color: "rgb(90, 90, 90)", fontWeight: "500"}}> With 1 being the least prefered and 5 being the most prefered </p>
         <Grid container id="signUpGrid" direction={"row"} spacing={3} sx={{justifyContent: "center"}}>
             <Grid item>
                 <Box sx={{ height: "200px", width: "350px"}}>
@@ -115,7 +120,7 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Cafe or Bakery </div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={() => handleCafeRating()}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => setCafeRating(value)}/>
                     </Box>
                 </Box>
             </Grid>
@@ -126,7 +131,7 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Library</div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} value={libraryRating}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => setLibraryRating(value)}/>
                     </Box>
                 </Box>
             </Grid>
@@ -137,11 +142,12 @@ export default function SignUp2() {
                     </Box>
                     <Box sx={{marginTop:"20px"}}>
                         <div id="categoryName">Co-working Space</div>
-                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} value={coWorkingRating}/>
+                        <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => setcoWorkingRating(value)}/>
                     </Box>
                 </Box>
             </Grid>
         </Grid>
+        <Button variant="outlined" sx={{marginTop: "15vh", color: "white", borderColor:"white", height:"50px", width:"130px", borderRadius:"20px", fontSize: "17px"}} onClick={(e)=>handleOnSubmit(e)}>Done</Button>
         {/* add done button to make submission easier <div> <button> done </button> </div> */}
       </div>
       <img id="blob1" src={blob1}></img>
