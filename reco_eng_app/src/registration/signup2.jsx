@@ -19,8 +19,9 @@ import Tooltip from '@mui/material/Tooltip';
 import { useState } from "react";
 import { useEffect } from "react";
 import Button from '@mui/material/Button';
-import { getDatabase, ref, get, child, set } from "firebase/database";
+import { getDatabase, ref, get, child, set, push, orderByChild } from "firebase/database";
 import {getAuth} from "firebase/auth";
+import {getCategoryRatingbyUser} from "../backend/categoryVector.js"
 
 function ValueLabelComponent(props) {
   const { children, value } = props;
@@ -123,7 +124,7 @@ export default function SignUp2() {
     };
     // Write the data to the database
     // const id = "1"; 
-    set(ref(db, "categoryRatings/categoryRating" + i + "_" + user.uid), data)
+    push(ref(db, "categoryRatings/"), data)
       .then(() => {
         console.log("Data saved successfully.");
       })
@@ -131,6 +132,9 @@ export default function SignUp2() {
         console.log("Data could not be saved." + error);
       });
     }
+
+    getCategoryRatingbyUser();
+
   }
 
 
