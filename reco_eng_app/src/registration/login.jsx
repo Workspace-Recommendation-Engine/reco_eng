@@ -40,12 +40,12 @@ export default function Login() {
         }
     },[user]); 
 
-    const handleOnSubmit = (e) => {
+    const handleOnSubmit  = (e) => { 
         e.preventDefault();
         console.log(email);
         console.log(password);
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        const auth = getAuth(); 
+        signInWithEmailAndPassword(auth, email, password) 
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user; 
