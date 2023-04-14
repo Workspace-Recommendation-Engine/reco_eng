@@ -182,7 +182,6 @@ export default function Matches() {
                   <div style={{marginTop:"5px"}}> Rate: </div>
                   <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} /></div>
                 </div>
-                
               </Box>
             </Box>
           </Grid>

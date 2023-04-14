@@ -133,16 +133,9 @@ export default function SignUp2() {
       });
     }
 
-    const categoryVector = getCategoryRatingbyUser();
-    categoryVector.map((item) => {
-      console.log("items in category Vector: " + item)
-    })
-    
-    // navigate("/matches");
-    
+    getCategoryRatingbyUser(user.uid);
+    navigate("/matches");
   }
-
-
 
   return (
     <>
