@@ -145,8 +145,6 @@ export default function Matches() {
     image: workCafe 
   }
 
- 
-
   const [testArr, setTestArr] = React.useState([
    workspaceObj0,
    workspaceObj1,
@@ -161,17 +159,7 @@ export default function Matches() {
     if(workspaceRating != 0){
       console.log("id is: " + currID); 
       const user = getAuth().currentUser;
-      // const db = getDatabase();
-      // const vectorRef = ref(db, '/vectors');
-      // const q = query(vectorRef, orderByChild(user.uid))
-      // onValue(q, (snapshot) => {
-      //   console.log("snapshot in matches: " + snapshot.val());
-      //   snapshot.forEach((element) => {
-      //     console.log("element.val in matches: " + JSON.stringify(element.val().ratingsVector))
-      //   })
-      // });
-
-      editWorkspaceRatings(currID, user.uid, workspaceRating)
+      editWorkspaceRatings(currID, user.uid, workspaceRating) //updating ratings vector
     }
   },[workspaceRating]); 
 
@@ -242,8 +230,6 @@ export default function Matches() {
         ))}
       </Grid>
       </div>
-
-        {/* figure out how ot send these to the back  */}
       <img id="blob1" src={blob1}></img>
       <img id="blob2" src={blob2}></img>
     </>
