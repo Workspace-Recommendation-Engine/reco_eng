@@ -18,6 +18,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import { getDatabase, ref, get, child, set, orderByChild, equalTo, onValue, query } from "firebase/database";
+import {editWorkspaceRatings} from "../backend/matchesVector.js"
 
 
 function ValueLabelComponent(props) {
@@ -141,15 +142,17 @@ export default function Matches() {
     if(workspaceRating != 0){
       console.log("id is: " + currID); 
       const user = getAuth().currentUser;
-      const db = getDatabase();
-      const vectorRef = ref(db, '/vectors');
-      const q = query(vectorRef, orderByChild(user.uid))
-      onValue(q, (snapshot) => {
-        console.log("snapshot in matches: " + snapshot.val());
-        snapshot.forEach((element) => {
-          console.log("element.val in matches: " + JSON.stringify(element.val().ratingsVector))
-        })
-      });
+      // const db = getDatabase();
+      // const vectorRef = ref(db, '/vectors');
+      // const q = query(vectorRef, orderByChild(user.uid))
+      // onValue(q, (snapshot) => {
+      //   console.log("snapshot in matches: " + snapshot.val());
+      //   snapshot.forEach((element) => {
+      //     console.log("element.val in matches: " + JSON.stringify(element.val().ratingsVector))
+      //   })
+      // });
+
+      editWorkspaceRatings(currID, user.uid, workspaceRating)
     }
   },[workspaceRating]); 
 
@@ -213,7 +216,6 @@ export default function Matches() {
                 <div style={{display: "flex"}}>
                   <div style={{marginTop:"5px"}}> Rate: </div>
                   <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => {setWorkspaceRating(value); setCurrID(item.id)}}/></div>
-                  <div> rating: {workspaceRating} </div>
                 </div>
               </Box>
             </Box>
