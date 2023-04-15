@@ -17,7 +17,7 @@ import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import { getDatabase, ref, get, child, set, onValue } from "firebase/database";
+import { getDatabase, ref, get, child, set, orderByChild, equalTo, onValue, query } from "firebase/database";
 
 
 function ValueLabelComponent(props) {
@@ -79,7 +79,7 @@ const PrettoSlider = styled(Slider)({
 
 export default function Matches() {
  
-  let workSpaces = []
+  let workspaces = []
   //!dont delete use this code to read workspace objects later when they are returned from the model 
   // useEffect(() => {
   //   readWorkspaces()
@@ -113,13 +113,45 @@ export default function Matches() {
       });
   };
 
+  //creating workspace object 
+  const workspaceObj = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "0", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
+ 
+
   const [testArr, setTestArr] = React.useState([
-    workCafe,
-    workCafe,
-    verticalCafe,
-    verticalCafe,
-    workCafe
+   workspaceObj,
+   workspaceObj,
+   workspaceObj,
+   workspaceObj,
+   workspaceObj
   ]);
+
+  const [workspaceRating, setWorkspaceRating] = React.useState(0)
+  const [currID, setCurrID] = React.useState(""); 
+
+  useEffect(() => {
+    if(workspaceRating != 0){
+      console.log("id is: " + currID); 
+      const user = getAuth().currentUser;
+      const db = getDatabase();
+      const vectorRef = ref(db, '/vectors');
+      const q = query(vectorRef, orderByChild(user.uid))
+      onValue(q, (snapshot) => {
+        console.log("snapshot in matches: " + snapshot.val());
+        snapshot.forEach((element) => {
+          console.log("element.val in matches: " + JSON.stringify(element.val().ratingsVector))
+        })
+      });
+    }
+  },[workspaceRating]); 
 
   
   let firstItem = false; 
@@ -161,26 +193,27 @@ export default function Matches() {
                     sx={{  height: "200px", textAlign:"center" }} 
                   >
                     <div id="thumbnail">
-                      <img id="thumbnailImg" src={item}></img>
+                      <img id="thumbnailImg" src={item.image}></img>
                     </div>
                   </Carousel>
               </Box>
               <Box sx={{}}>
                 <div id="itemDescription">
                   <Grid container spacing={3}>
-                    <Grid item>Name</Grid>
-                    <Grid item>Type</Grid>
+                    <Grid item>{item.name}</Grid>
+                    <Grid item>{item.type}</Grid>
                     <MatchIndex index={index} />
                   </Grid>
                   <div id="break"> </div>
                   <div id="itemDescription2">
                     <button id="addressBtn"> Address </button>
-                    <p id="hours">Hours:</p>
+                    <p id="hours"> Open Now</p>
                   </div>
                 </div>
                 <div style={{display: "flex"}}>
                   <div style={{marginTop:"5px"}}> Rate: </div>
-                  <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} /></div>
+                  <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => {setWorkspaceRating(value); setCurrID(item.id)}}/></div>
+                  <div> rating: {workspaceRating} </div>
                 </div>
               </Box>
             </Box>
