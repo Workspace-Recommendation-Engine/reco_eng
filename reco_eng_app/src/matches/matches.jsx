@@ -115,7 +115,7 @@ export default function Matches() {
   };
 
   //creating workspace object 
-  const workspaceObj = {
+  const workspaceObj0 = {
     address: "111 Gran Via",
     category: "cafe", 
     id: "0", 
@@ -125,14 +125,33 @@ export default function Matches() {
     image: workCafe 
   }
 
+  const workspaceObj1 = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "1", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
+  const workspaceObj2 = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "2", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
  
 
   const [testArr, setTestArr] = React.useState([
-   workspaceObj,
-   workspaceObj,
-   workspaceObj,
-   workspaceObj,
-   workspaceObj
+   workspaceObj0,
+   workspaceObj1,
+   workspaceObj2,
+   workspaceObj0
   ]);
 
   const [workspaceRating, setWorkspaceRating] = React.useState(0)
