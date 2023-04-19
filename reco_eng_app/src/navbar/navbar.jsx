@@ -1,10 +1,11 @@
 import React from "react";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import "./navbar.css"
 import coffeeMug from "../images/coffeeMug.jpg"
+import { useState,useEffect } from "react";
 
 
 //Coffee mug image by <a href="https://www.freepik.com/free-vector/flat-design-cafe-signage_22203365.htm#query=solo%20steaming%20coffee%20mug&position=3&from_view=search&track=ais">Freepik</a>
@@ -13,9 +14,18 @@ export default function Navbar(){
     const navigate = useNavigate();
     const auth = getAuth();
     const [loggedIn, setLoggedIn] = React.useState(false);
+    const [user, setCurrentUser] = React.useState(null);
 
+    // const user = getAuth().currentUser;
 
-    const user = getAuth().currentUser;
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          setCurrentUser(user);
+        });
+    
+        return unsubscribe; // unsubscribe on unmount
+      }, []);
 
     const logout = () => {
         const auth = getAuth();

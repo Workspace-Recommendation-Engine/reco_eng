@@ -17,7 +17,10 @@ import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import { getDatabase, ref, get, child, set, onValue } from "firebase/database";
+import { getDatabase, ref, get, child, set, orderByChild, equalTo, onValue, query } from "firebase/database";
+import {editWorkspaceRatings} from "../backend/matchesVector.js"
+import {getMatches} from "../backend/categoryVector.js"
+import {topTen} from "../backend/categoryVector.js";
 
 
 function ValueLabelComponent(props) {
@@ -79,7 +82,7 @@ const PrettoSlider = styled(Slider)({
 
 export default function Matches() {
  
-  let workSpaces = []
+  let workspaces = []
   //!dont delete use this code to read workspace objects later when they are returned from the model 
   // useEffect(() => {
   //   readWorkspaces()
@@ -113,13 +116,58 @@ export default function Matches() {
       });
   };
 
+  
+
+  //creating workspace object 
+  const workspaceObj0 = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "0", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
+  const workspaceObj1 = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "1", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
+  const workspaceObj2 = {
+    address: "111 Gran Via",
+    category: "cafe", 
+    id: "2", 
+    latitude: "0",
+    longitude: "0",
+    name: "Tartas y Cafe",
+    image: workCafe 
+  }
+
   const [testArr, setTestArr] = React.useState([
-    workCafe,
-    workCafe,
-    verticalCafe,
-    verticalCafe,
-    workCafe
+   workspaceObj0,
+   workspaceObj1,
+   workspaceObj2,
+   workspaceObj0
   ]);
+
+  const [workspaceRating, setWorkspaceRating] = React.useState(0)
+  const [currID, setCurrID] = React.useState(""); 
+
+  useEffect(() => {
+    if(workspaceRating != 0){
+      console.log("id is: " + currID); 
+      const user = getAuth().currentUser;
+      editWorkspaceRatings(currID, user.uid, workspaceRating) //updating ratings vector
+    }
+  },[workspaceRating]); 
+
+
 
   
   let firstItem = false; 
@@ -161,36 +209,33 @@ export default function Matches() {
                     sx={{  height: "200px", textAlign:"center" }} 
                   >
                     <div id="thumbnail">
-                      <img id="thumbnailImg" src={item}></img>
+                      <img id="thumbnailImg" src={item?.img_url}></img>
                     </div>
                   </Carousel>
               </Box>
               <Box sx={{}}>
                 <div id="itemDescription">
                   <Grid container spacing={3}>
-                    <Grid item>Name</Grid>
-                    <Grid item>Type</Grid>
+                    <Grid item>{item?.name}</Grid>
+                    <Grid item>{item?.category}</Grid>
                     <MatchIndex index={index} />
                   </Grid>
                   <div id="break"> </div>
                   <div id="itemDescription2">
                     <button id="addressBtn"> Address </button>
-                    <p id="hours">Hours:</p>
+                    <p id="hours"> Open Now</p>
                   </div>
                 </div>
                 <div style={{display: "flex"}}>
                   <div style={{marginTop:"5px"}}> Rate: </div>
-                  <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} /></div>
+                  <div style={{marginLeft:"20px"}}><PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={0} max={5} onChange={(_, value) => {setWorkspaceRating(value); setCurrID(item?.id)}}/></div>
                 </div>
-                
               </Box>
             </Box>
           </Grid>
         ))}
       </Grid>
       </div>
-
-        {/* figure out how ot send these to the back  */}
       <img id="blob1" src={blob1}></img>
       <img id="blob2" src={blob2}></img>
     </>

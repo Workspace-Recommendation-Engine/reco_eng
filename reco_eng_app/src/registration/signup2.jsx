@@ -23,6 +23,7 @@ import { getDatabase, ref, get, child, set, push, orderByChild } from "firebase/
 import {getAuth} from "firebase/auth";
 import {getCategoryRatingbyUser} from "../backend/categoryVector.js"
 
+
 function ValueLabelComponent(props) {
   const { children, value } = props;
 
@@ -85,7 +86,7 @@ export default function SignUp2() {
   const [libraryRating, setLibraryRating] = React.useState(0);
   const [coWorkingRating, setcoWorkingRating] = React.useState(0);
   const [currUser, setCurrUser] = React.useState(0); 
-  
+  const navigate = useNavigate();
   // useEffect(() => {
   //   const user = getAuth().currentUser;
   //   console.log("user in sign up 2:" + user?.name);
@@ -105,7 +106,6 @@ export default function SignUp2() {
     
     let rating = null; 
     for(let i = 0; i <= 17; i++){
-      console.log("i is: " + i)
       const db = getDatabase();
     if(i <= 1 || i >= 3 && i <=7 || i >= 9 && i <=11 || i >= 15 && i <=16){
       rating = cafeRating; 
@@ -133,11 +133,10 @@ export default function SignUp2() {
       });
     }
 
-    getCategoryRatingbyUser();
 
+    getCategoryRatingbyUser(user.uid);
+    navigate("/matches");
   }
-
-
 
   return (
     <>
