@@ -3,7 +3,11 @@
 
 
 ## Final Release
-For the final release of this project, we attempted to follow the general file structure as outlined in this repo provided by the professor https://github.com/miguelgfierro/project_template/releases/tag/0.1.0
+For the final release of this project, we attempted to follow the general file structure as outlined in this repo provided by the professor https://github.com/miguelgfierro/project_template/releases/tag/0.1.0.
+
+Team communication was primarily conducted over WhatsApp, however we left essential interactions under Issues and Discussions. 
+
+The Figma mockup of our frontend design can be found here: https://www.figma.com/files/team/1213434573888216283/Workspace-Reco?fuid=988727842074551615 
 
 We will break down the documentation based on each subdirectory:
 
@@ -32,5 +36,4 @@ We test the predict_score function by looking to see if the output is the same a
 ## setup.py
 The setup file to run pytests.
 
-## Frontend Figma
-https://www.figma.com/files/team/1213434573888216283/Workspace-Reco?fuid=988727842074551615 
+
