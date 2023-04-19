@@ -23,3 +23,22 @@ export const editWorkspaceRatings = (workspaceID, uid, workspaceRating) =>{
 
   //then send updated vector to api 
 }
+
+function getMatches (workspaceRatingsVector){
+  fetch('http://127.0.0.1:8000/get_recommendations', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      // request data here
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+  // handle response data here
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
