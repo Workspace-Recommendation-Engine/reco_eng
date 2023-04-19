@@ -45,7 +45,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install pandas numpy scikit-learn
+        pip install pandas numpy scikit-learn pytest
 
     - name: Python version and dependency list
       run: |
