@@ -3,7 +3,7 @@
 
 # # Smart Adaptive Recommendations (SAR) Model
 
-# In[1]:
+# In[13]:
 
 
 import pandas as pd
@@ -22,7 +22,7 @@ clean_df
 # - The clean_df DataFrame contains pre-processed and cleaned data for the workspace recommendation engine. This includes relevant attributes for each workspace, such as location, opening time, price, and ratings, as well as any additional user and workspace information needed for the SAR model.
 # 
 
-# In[2]:
+# In[14]:
 
 
 # Drop constantly changing Next_status column
@@ -31,7 +31,7 @@ clean_df.drop("Next_status", axis=1, inplace=True)
 
 # - The code above drops Next_status column which is irrelavant as it constantly changes based on the current time.
 
-# In[3]:
+# In[15]:
 
 
 # Get 100 row indices labels following pattern:
@@ -79,7 +79,7 @@ weighted_clean_df
 # 
 # -The **weighted_clean_df** DataFrame is then created by passing the data dictionary to the **pd.DataFrame()** constructor. This DataFrame shows the weighted average user rating for each workspace, based on each user's randomly generated ratings.
 
-# In[4]:
+# In[16]:
 
 
 category_averages_df = weighted_clean_df.groupby("Category").mean(numeric_only=True).round(1).T
@@ -93,7 +93,7 @@ category_averages_df
 # 
 # -Finally, we print the **category_averages_df** , which shows the user average rating for each workspace category based on the synthetic dataset generated in the previous code.
 
-# In[5]:
+# In[17]:
 
 
 # Drop Workspace_Id row
@@ -105,7 +105,7 @@ category_averages_df
 # 
 # - The resulting DataFrame shows the user average rating for each workspace category based on the synthetic dataset generated in the previous code block, with the "Workspace_Id" row removed.
 
-# In[6]:
+# In[18]:
 
 
 # Copy clean_df in a dataframe called relevant_train_df
@@ -124,7 +124,7 @@ workspace_ids = [i for i in weighted_clean_df["Workspace_Id"]]
 relevant_train_df
 
 
-# In[7]:
+# In[19]:
 
 
 # Store irrelevant column names (those not needed for workspace to workspace comparison) in a list
@@ -141,7 +141,7 @@ relevant_train_df
 # 
 # - <b>It is important to note that the workspace Id will not be taken into account for the actual comparisons but just to identify the workspaces being compared </b>.
 
-# In[8]:
+# In[20]:
 
 
 # Get indices and columns for workspaces which correspond to the workspace Ids
@@ -163,7 +163,7 @@ workspace_workspace_df
 # 
 # 3. We create a dataframe called workspace_workspace_df with the data we created in the previous step and the indices and columns corresponding to the workspace Ids. This dataframe acts as a workspace to workspace affinitiy matrix which measures the cosine similarity between each workspace based on rating, price range, category, latitude and longitude.
 
-# In[9]:
+# In[21]:
 
 
 # Recommendation scores are obtained by multiplying the workspace-to-workspace affinity matrix
@@ -190,7 +190,7 @@ user_1_rec
 
 # Print Recommendations
 
-# In[10]:
+# In[22]:
 
 
 # Get sub-dataframe with top 5 scored workspaces
@@ -205,7 +205,7 @@ top_5_workspaces
 # 
 # The resulting top_5_workspaces DataFrame is printed.
 
-# In[11]:
+# In[23]:
 
 
 def print_workspace(workspace_id):
@@ -238,7 +238,7 @@ def print_workspace(workspace_id):
 # 
 # The function is meant to be used to display details of a workspace to a user, given a workspace id.
 
-# In[12]:
+# In[24]:
 
 
 # Print top 5 recommended workspaces for User_1
