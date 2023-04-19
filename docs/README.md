@@ -28,6 +28,7 @@ For this model, we take the clean dataset and do some one-hot encoding on the ca
 
 
 ## reco_eng_app
+The reco_eng_app folder holds the frontend of the project. The files add the most major functionality to the application include, categoryVector.js file where the coldstart and hotstart problem is accounted for. In this file a fetch request is made to the server and the users top 10 workspaces are acquired. Additionally, in the   
 
 ## tests
 We ran two separate sets of testing for the SAR and KNN models. It should be noted that in order to be able to import the code from the models properly, we had to convert from ipynb to py file formats. This function is included in this subdirectory, simply for documentation purposes. There is a file in this subdirectory called requirements.txt which contains required libraries for running the tests, which are installed during the PR Gate GitHub workflow.
