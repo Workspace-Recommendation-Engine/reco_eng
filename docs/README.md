@@ -28,7 +28,7 @@ For this model, we take the clean dataset and do some one-hot encoding on the ca
 
 
 ## reco_eng_app
-The reco_eng_app folder holds the frontend of the project. The files add the most major functionality to the application include, categoryVector.js file where the coldstart and hotstart problem is accounted for. In this file a fetch request is made to the server and the users top 10 workspaces are acquired. Additionally, in the the matchesVector.js file we were able to write a function that updates the user's workspace ratings vector which can then be passedi nto the SAR model. We have the data accurately going from the server to the the frontend but unfortanately we could not get it to display. 
+The reco_eng_app folder holds the frontend of the project. The files that add the most major functionality to the application include, categoryVector.js file where the coldstart and hotstart problem is accounted for. In this file a fetch request is made to the server and the users top 10 workspaces are acquired. Additionally, in the the matchesVector.js file we were able to write a function that updates the user's workspace ratings vector which can then be passedi nto the SAR model. We have the data accurately going from the server to the the frontend but unfortanately we could not get it to display. 
 
 Here is the image of the data being accessed on frontend: 
 https://drive.google.com/file/d/1aJhQfsWIquR0l_vjsWwqGxH2oXNjkpwz/view?usp=share_link
