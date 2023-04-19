@@ -133,6 +133,7 @@ export default function SignUp2() {
       });
     }
 
+
     getCategoryRatingbyUser(user.uid);
     navigate("/matches");
   }

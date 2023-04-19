@@ -45,7 +45,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install .
+        pip install pandas numpy scikit-learn pytest
 
     - name: Python version and dependency list
       run: |
@@ -57,3 +57,5 @@ jobs:
     - name: Run tests
       run: |
         pytest tests --disable-warnings --durations 0
+         
+
