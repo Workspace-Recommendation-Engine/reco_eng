@@ -16,7 +16,21 @@ This is the subdirectory where our core models go. We attempted the project with
 ### SAR Model
 
 ### KNN Model
+For this model, we take the clean dataset and do some one-hot encoding on the categories column to get unique binary arrays for each category. This then allows us to run cosine similarity on different categories, which gets passed into our final ranking function. This ranking function works by taking a given location as input and then giving an output based on the KNN approach with cosine similarity. The problem with this is that we had a cold-start problem in which we would need to multiply the weights of different categories by the preferences indicated by a user. We almost implemented this solution, however we would have also needed to implement something to take the user's location into account. Unfortunately, by the time we realized this, we were already quite close to the deadline so we didn't have the time to do the research and tweaking necessary for that solution. 
 
+
+## reco_eng_app
+
+## tests
+We ran two separate sets of testing for the SAR and KNN models. It should be noted that in order to be able to import the code from the models properly, we had to convert from ipynb to py file formats. This function is included in this subdirectory, simply for documentation purposes. There is a file in this subdirectory called requirements.txt which contains required libraries for running the tests, which are installed during the PR Gate GitHub workflow.
+
+### SAR Tests
+
+### KNN Tests
+We test the predict_score function by looking to see if the output is the same as the formatted output given by the function with a constant location set as the input for testing purposes. 
+
+## setup.py
+The setup file to run pytests.
 
 ## Frontend Figma
 https://www.figma.com/files/team/1213434573888216283/Workspace-Reco?fuid=988727842074551615 
