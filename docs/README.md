@@ -28,7 +28,13 @@ For this model, we take the clean dataset and do some one-hot encoding on the ca
 
 
 ## reco_eng_app
-The reco_eng_app folder holds the frontend of the project. The files add the most major functionality to the application include, categoryVector.js file where the coldstart and hotstart problem is accounted for. In this file a fetch request is made to the server and the users top 10 workspaces are acquired. Additionally, in the   
+The reco_eng_app folder holds the frontend of the project. The files add the most major functionality to the application include, categoryVector.js file where the coldstart and hotstart problem is accounted for. In this file a fetch request is made to the server and the users top 10 workspaces are acquired. Additionally, in the the matchesVector.js file we were able to write a function that updates the user's workspace ratings vector which can then be passedi nto the SAR model. We have the data accurately going from the server to the the frontend but unfortanately we could not get it to display. 
+
+Here is the image of the data being accessed on frontend: 
+https://drive.google.com/file/d/1aJhQfsWIquR0l_vjsWwqGxH2oXNjkpwz/view?usp=share_link
+
+Here is the image of what it would look like when workspaces are displayed on frontend: 
+https://drive.google.com/file/d/1s7GgaES9PJTaKUr3Ul2cEemfO-mrzKlW/view?usp=share_link
 
 ## tests
 We ran two separate sets of testing for the SAR and KNN models. It should be noted that in order to be able to import the code from the models properly, we had to convert from ipynb to py file formats. This function is included in this subdirectory, simply for documentation purposes. There is a file in this subdirectory called requirements.txt which contains required libraries for running the tests, which are installed during the PR Gate GitHub workflow.
